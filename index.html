@@ -3,24 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Goal Stream Player</title>
+    <title>Cómo usar Goal Stream Player</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; color: #333; }
-        .container { max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 15px; shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        h1 { color: #2c3e50; font-size: 24px; }
-        p { font-size: 16px; line-height: 1.6; }
-        .highlight { font-weight: bold; color: #e67e22; }
-        .footer { margin-top: 20px; font-weight: bold; color: #27ae60; }
+        /* Estilos para el Modo Oscuro */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Fondo oscuro profundo */
+            color: #e0e0e0; /* Texto claro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #1e1e1e; /* Color de la tarjeta ligeramente más claro */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #bb86fc; /* Color morado suave para el subtítulo */
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .instrucciones {
+            text-align: left;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .highlight {
+            color: #03dac6; /* Color turquesa para resaltar */
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #cf6679; /* Color coral suave */
+            font-weight: bold;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #333;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <div class="card">
         <h1>Cómo usar Goal Stream Player</h1>
-        <p><strong>Instrucciones:</strong> Haz clic en el botón "Conseguir enlaces aquí", te llevará a los enlaces de los partidos. Copia el partido que quieres ver.</p>
-        <p>Presiona "Salir" para regresar a la app de <strong>Goal Stream Player</strong>.</p>
-        <p>Pega en la sección <span class="highlight">PEGAR ENLACE</span> y dale en <span class="highlight">"Reproducir ahora"</span>.</p>
-        <p>Eso es todo. Recuerda que debes copiar el enlace a la <span class="highlight">hora aproximada a los partidos</span>, los enlaces se publican media hora antes.</p>
-        <div class="footer">¡Que disfrutes!</div>
+        <h2>Instrucciones:</h2>
+
+        <div class="instrucciones">
+            <p>1. Haz clic en el botón <span class="highlight">"Conseguir enlaces aquí"</span>, te llevará a los enlaces de los partidos. Copia el partido que quieres ver.</p>
+            
+            <p>2. Presiona <span class="highlight">"Salir"</span> para regresar a la app de Goal Stream Player.</p>
+            
+            <p>3. Pega en la sección <span class="highlight">PEGAR ENLACE</span> y dale en <span class="highlight">"Reproducir ahora"</span>.</p>
+            
+            <hr>
+            
+            <p>Eso es todo. Recuerda que debes copiar el enlace a la <strong>hora aproximada a los partidos</strong>, los enlaces se publican media hora antes.</p>
+        </div>
+
+        <div class="footer">
+            ¡Que disfrutes! ⚽
+        </div>
     </div>
+
 </body>
 </html>
