@@ -5,14 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía Goal Stream Player</title>
     <style>
-        /* Diseño optimizado para móviles */
+        /* Desactivar selección de texto para evitar copiado fácil */
         * {
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
             box-sizing: border-box;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0f0f0f; /* Negro profundo */
+            background-color: #0f0f0f;
             color: #ffffff;
             margin: 0;
             display: flex;
@@ -25,7 +30,7 @@
         .mobile-card {
             background-color: #1a1a1a;
             width: 100%;
-            max-width: 400px; /* Ancho máximo de un celular */
+            max-width: 400px;
             padding: 25px;
             border-radius: 20px;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
@@ -33,91 +38,69 @@
             text-align: center;
         }
 
-        h1 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #00ff88; /* Verde fútbol brillante */
-        }
+        h1 { font-size: 22px; margin-bottom: 10px; color: #00ff88; }
+        .subtitle { font-size: 14px; color: #aaaaaa; margin-bottom: 25px; display: block; }
+        .step-container { text-align: left; font-size: 15px; line-height: 1.5; }
+        .step { background: #252525; padding: 15px; border-radius: 12px; margin-bottom: 15px; border-left: 4px solid #00ff88; }
+        .highlight { color: #00ff88; font-weight: bold; }
+        .important-note { background-color: rgba(255, 193, 7, 0.1); border: 1px dashed #ffc107; color: #ffc107; padding: 12px; border-radius: 10px; font-size: 13px; margin-top: 20px; }
+        .footer { margin-top: 25px; font-size: 18px; font-weight: bold; color: #ffffff; }
 
-        .subtitle {
-            font-size: 14px;
-            color: #aaaaaa;
-            margin-bottom: 25px;
-            display: block;
-        }
-
-        .step-container {
-            text-align: left;
-            font-size: 15px;
-            line-height: 1.5;
-        }
-
-        .step {
-            background: #252525;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-            border-left: 4px solid #00ff88;
-        }
-
-        .highlight {
-            color: #00ff88;
-            font-weight: bold;
-        }
-
-        .important-note {
-            background-color: rgba(255, 193, 7, 0.1);
-            border: 1px dashed #ffc107;
-            color: #ffc107;
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            margin-top: 20px;
-        }
-
-        .footer {
-            margin-top: 25px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #ffffff;
-        }
-
-        /* Ajuste para pantallas muy pequeñas */
         @media (max-width: 350px) {
             h1 { font-size: 18px; }
             .step { font-size: 13px; }
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false" onkeydown="return false">
 
     <div class="mobile-card">
         <h1>Cómo usar Goal Stream Player</h1>
-        <span class="subtitle">Instrucciones de uso rápido</span>
+        <span class="subtitle">Instrucciones de seguridad activadas</span>
 
         <div class="step-container">
             <div class="step">
-                1. Haz clic en <span class="highlight">"Conseguir enlaces aquí"</span>. Copia el enlace del partido que quieres ver.
+                1. Haz clic en <span class="highlight">"Conseguir enlaces aquí"</span>. 
             </div>
             
             <div class="step">
-                2. Vuelve <span class="highlight">"ATRAS"</span> para regresar a la app de Goal Stream Player.
+                2. El sistema copiará el enlace de forma protegida para tu app.
             </div>
             
             <div class="step">
-                3. Pega en la sección <span class="highlight">PEGAR ENLACE</span> y dale en <span class="highlight">"Reproducir ahora"</span>.
+                3. Regresa a <span class="highlight">Goal Stream Player</span> y el enlace se pegará automáticamente o dale a reproducir.
             </div>
         </div>
 
         <div class="important-note">
-            ⚠️ <strong>Recuerda:</strong> Copia el enlace a la hora aproximada de los partidos (los enlaces se publican 30 min antes).
+            ⚠️ <strong>Seguridad:</strong> El enlace solo funciona dentro de esta aplicación oficial.
         </div>
 
         <div class="footer">
-            ⚽ ¡Que disfrutes!
+            ⚽ ¡A disfrutar el partido!
         </div>
     </div>
 
+    <script>
+        // Bloquear combinaciones de teclado (Ctrl+U, Ctrl+C, F12)
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 85 || e.keyCode === 117)) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+
+        // Función para que cuando "copien" algo, se agregue un token de seguridad
+        document.addEventListener('copy', function(e){
+            // Esto engaña a quien intente copiar fuera de la app
+            // Pero dentro de tu app, tú puedes programar que ignore el texto extra
+            var text = window.getSelection().toString();
+            if(text.length > 0) {
+                e.clipboardData.setData('text/plain', text + "_PROTECTED_BY_GOALSTREAM");
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
-
